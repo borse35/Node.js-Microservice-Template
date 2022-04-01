@@ -1,0 +1,35 @@
+{
+  "name": "biobazaar",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js"
+  },
+  "author": "SB",
+  "license": "ISC",
+  "dependencies": {
+    "change-case": "^4.1.2",
+    "cls-hooked": "^4.2.2",
+    "errorhandler": "^1.5.1",
+    "express": "^4.17.3",
+    "helmet": "^5.0.2",
+    "ioredis": "^5.0.1",
+    "mongoose": "^6.2.9",
+    "morgan": "^1.10.0",
+    "nconf": "^0.11.3",
+    "nodemon": "^2.0.15",
+    "passport": "^0.5.2",
+    "pg": "^8.7.3",
+    "pg-hstore": "^2.3.4",
+    "pino": "^7.9.2",
+    "ramda": "^0.28.0",
+    "redis": "^4.0.4",
+    "sequelize": "^6.17.0",
+    "snappy": "^7.1.1"
+  },
+  "devDependencies": {
+    "sequelize-cli": "^6.4.1"
+  }
+}
