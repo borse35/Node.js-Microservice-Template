@@ -5,7 +5,8 @@ nconf.argv()
   .env()
   .file({ file: `./config/${env}.json` });
 
-const allowedConfigKeys = ['service_name', 'apm_name', 'redis_prefix', 'server', 'databases', 'services'];
+// not picking anything and everything from the config
+const allowedConfigKeys = ['service_name', 'apm_name', 'redis_prefix', 'server', 'databases', 'services', 'rateLimiterConf'];
 const configReducer = (config, key) => {
   const configVal = nconf.get(key);
   if (configVal)

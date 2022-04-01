@@ -5,6 +5,12 @@ const config = require("./config");
 const connections = require('./connections');
 const { logger } = require('./helpers/utils');
 
+// TODO add safe-regex usage example
+// TODO add validator usage example
+// TODO add joi usage example
+// TODO add "celebrate" usage example
+// TODO add express-rate-limit usage example
+
 (async () => {
 
   // adding middlewares

@@ -1,18 +1,34 @@
-# Sample Nodejs Server
+# Nodejs Microservice Template
+Template to quickly bootstrap nodejs microservices.
 
+###Included:
 ```
-Notes:
-1. Remove mongo package is not needed i.e. mongoose
-2. Remove postgres package is not needed i.e. sequelize, pg, pg-hstore
-3. Remove redis package is not needed i.e. ioredis
-4. Remove all files that have this comment in them "Example file, delete later"
+1. Express application with graceful exits
+2. Sample config json file parsed with "nconf"
+3. Connect to common databases (Mongo, PostgreSQL, Redis) simply by updating config with corresponding connection details (i.e host, port, username, password)
+4. Examples for using MongoDb (using mongoose), PostgreSQL (using sequelize), and Redis (using ioredis).
+5. Wrappers for function & middlewares for ReqHandler to cache data on redis
+5. Separate controllers for requests from client (external), employee-dashboard (dashboard), other-sibling-services (internal).
+6. DAO folder for making db calls
+7. Custom error classes to handle them differently and avoid spam to error monitoring service
+8. Standard set of middlewares including rate-limiter, helmet etc
 ```
 
-## Postgres
-Read about Migrations [here](https://sequelize.org/master/manual/migrations.html). 
+### Notes:
+```
+1. Remove all files that have this comment in them "Example file, delete later"
+2. Use RegExp.safe() to avoid ReDoS
+3. Use "validator" to validate and sanitize user input
+4. Validate object structures using "joi" wherever necessary
+5. Validate request data uing "celebrate"
+6. Be aware that redis keys auto expire. Update REDIS_DEFAULT_EXPIRY
+7. Connection attempts to databases will expire according to MAX_CONNECTION_DELAY
+8. Redis data is compressed to improve storage and network throughput
+9. Sequelize auto sync has been removed to maintain behaviour consistency and experience across environments
+```
 
-Examples:
-
+####Postgres Migrations: Read [here](https://sequelize.org/master/manual/migrations.html)
+Examples for reference (remove later):
 ```
 sequelize db:migrate                        Run pending migrations
 sequelize db:migrate:schema:timestamps:add  Update migration table to have timestamps

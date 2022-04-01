@@ -2,8 +2,7 @@ const mongo = require("./mongodb");
 const postgres = require("./pg");
 const redis = require("./redis");
 const { exitGracefully } = require("../events/closeServer");
-
-const MAX_CONNECTION_DELAY = 3000; // all db connections should be established in less than 3 seconds
+const { MAX_CONNECTION_DELAY } = require("../constants");
 
 const catchPromise = msg => err => {
   console.log(err);

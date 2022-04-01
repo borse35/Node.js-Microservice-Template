@@ -49,6 +49,8 @@ const assertNonEmpty = (obj) => {
 
 const waitFor = (duration) => new Promise((resolve) => setTimeout(resolve, duration));
 
+// TODO write fn wrapper to cache results
+
 module.exports = {
   handlerWrapper,
   logger: isProduction ? logger : console,

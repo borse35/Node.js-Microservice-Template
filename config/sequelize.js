@@ -1,3 +1,5 @@
+// sequelize-cli will use this file to get config for pg connection
+
 const config = require('config');
 const sequelizeConfig = {};
 
