@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "mocha",
     "start": "nodemon server.js"
   },
   "author": "SB",
@@ -31,10 +31,12 @@
     "redis": "^4.0.4",
     "safe-regex": "^2.1.1",
     "sequelize": "^6.17.0",
+    "sequelize-cli": "^6.4.1",
     "snappy": "^7.1.1",
     "validator": "^13.7.0"
   },
   "devDependencies": {
-    "sequelize-cli": "^6.4.1"
+    "chai": "^4.3.6",
+    "mocha": "^9.2.2"
   }
 }

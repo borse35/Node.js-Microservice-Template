@@ -1,29 +1,30 @@
-# Nodejs Microservice Template
-Template to quickly bootstrap nodejs microservices.
+# Node.js Microservice Template
+Template to quickly bootstrap node.js microservices.
 
 ###Included:
 ```
-1. Express application with graceful exits
-2. Sample config json file parsed with "nconf"
+1. Express application
+2. Sample config json file parsed with nconf to store secrets
 3. Connect to common databases (Mongo, PostgreSQL, Redis) simply by updating config with corresponding connection details (i.e host, port, username, password)
 4. Examples for using MongoDb (using mongoose), PostgreSQL (using sequelize), and Redis (using ioredis).
-5. Wrappers for function & middlewares for ReqHandler to cache data on redis
+5. Wrappers (for functions) & middlewares (for ReqHandlers) to cache data on redis
 5. Separate controllers for requests from client (external), employee-dashboard (dashboard), other-sibling-services (internal).
 6. DAO folder for making db calls
 7. Custom error classes to handle them differently and avoid spam to error monitoring service
-8. Standard set of middlewares including rate-limiter, helmet etc
+8. Standard set of middlewares including rate-limiter, helmet, bodyparser etc
+9. Example for tests written using mocha chai for TDD/BDD
 ```
 
 ### Notes:
 ```
 1. Remove all files that have this comment in them "Example file, delete later"
 2. Use RegExp.safe() to avoid ReDoS
-3. Use "validator" to validate and sanitize user input
-4. Validate object structures using "joi" wherever necessary
-5. Validate request data uing "celebrate"
+3. Use validator (package) to validate and sanitize user input
+4. Validate object structures using joi (package) wherever necessary
+5. Validate request data using celebrate (package)
 6. Be aware that redis keys auto expire. Update REDIS_DEFAULT_EXPIRY
 7. Connection attempts to databases will expire according to MAX_CONNECTION_DELAY
-8. Redis data is compressed to improve storage and network throughput
+8. Redis data is compressed using snappy (package) to improve storage and network throughput
 9. Sequelize auto sync has been removed to maintain behaviour consistency and experience across environments
 ```
 
@@ -41,11 +42,6 @@ sequelize db:seed:all                       Run every seeder
 sequelize db:seed:undo:all                  Deletes data from the database
 sequelize db:create                         Create database specified by configuration
 sequelize db:drop                           Drop database specified by configuration
-sequelize init                              Initializes project
-sequelize init:config                       Initializes configuration
-sequelize init:migrations                   Initializes migrations
-sequelize init:models                       Initializes models
-sequelize init:seeders                      Initializes seeders
 sequelize migration:generate                Generates a new migration file      [aliases: migration:create]
 sequelize model:generate                    Generates a model and its migration [aliases: model:create]
 sequelize seed:generate                     Generates a new seed file           [aliases: seed:create]
