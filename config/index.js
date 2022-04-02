@@ -22,5 +22,5 @@ module.exports = {
     port: 3000
   },
   ...allowedConfigKeys.reduce(configReducer, {}),
-  debugMode: [true, 'true'].includes(nconf.get('debug_mode')),
+  debugMode: [true, 'true'].includes(nconf.get('debug_mode')), // use for logging
 };
