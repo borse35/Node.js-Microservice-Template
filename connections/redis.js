@@ -16,7 +16,7 @@ const isConnected = () => !!redisConnection && ['connecting', 'connect', 'ready'
 /**
  * opens pg connection
  */
-module.exports.connect = async () => {
+module.exports.connect = () => {
 	const redisConfig = config.databases.redis;
 	if (!redisConfig) return;
 
@@ -32,7 +32,6 @@ module.exports.connect = async () => {
 		connectTimeout: 1000,
 		maxLoadingRetryTime: 1000,
 	});
-  redisConnection.set('biobazaar', 'test')
 
   if (!isConnected()) throw new Error('Unable to connect to Redis');
 

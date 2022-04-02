@@ -1,8 +1,8 @@
 const { compress, uncompress } = require('./compression');
-const RedisConnection = require('../connections/redis');
+const Redis = require('../connections/redis');
 const { REDIS_DEFAULT_EXPIRY } = require("../constants");
 
-const redis = RedisConnection.connect();
+const redis = Redis.connect();
 
 /**
  * sets key value pair in redis with expiry
@@ -12,7 +12,7 @@ const redis = RedisConnection.connect();
  * @returns {Promise<*>}
  */
 const setKey = async (key, value, expiry = REDIS_DEFAULT_EXPIRY) =>
-  await redis.set(key, compress(JSON.stringify(value)), 'EX', expiry)
+  await redis.set(key, await compress(JSON.stringify(value)), 'EX', expiry)
 
 /**
  * get value stored against key from redis

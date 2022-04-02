@@ -12,4 +12,4 @@ module.exports.compress = async (string) => await snappy.compress(string);
  * @param string
  * @returns {Promise<string|Buffer>}
  */
-module.exports.uncompress = async (string) => await snappy.uncompress(string);
+module.exports.uncompress = async (string) => await snappy.uncompress(string, { asBuffer: false });
