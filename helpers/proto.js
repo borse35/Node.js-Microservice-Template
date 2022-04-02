@@ -26,7 +26,7 @@ Promise.__proto__.timeout = async (promise, timeout, errMsg = 'Promise timed out
 });
 
 /**
- * timeout for multiple promises. If
+ * timeout for multiple promises. If any of the promises exceed the time-limit, promise is rejected
  * @param promises {Promise[]}
  * @param timeout {number}
  * @param errorMessages {string}
