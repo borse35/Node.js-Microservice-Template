@@ -18,12 +18,12 @@ module.exports.createModel = (modelClass, attributes, options = {}) => {
     paranoid: true, // only allow soft deletes
   });
 
-  // validating model
-  validateModel(modelClass, attributes, options);
-
   modelClass.init(attributes, options);
 
   _addCustomProps(modelClass);
+
+  // validating model
+  validateModel(modelClass, attributes, options);
 
   return modelClass;
 };
